@@ -1,11 +1,11 @@
 def main(type):
-  x = 0 
+  x = 0
   print(type)
   if type=="wl":
-  #a while loop 
+  #a while loop
     while (x <5):
       print(x)
-      x = x + 1
+      x += 1
   elif type=="fl":
   #a for loop 
     for x in range(5,10):
@@ -21,7 +21,7 @@ def main(type):
     directions = ["East", "West", "North", "South", "SouthWest", "NorthEast", "NorthWest"]
     for i, d in enumerate(directions):
       print (i,d) 
-  
+
   else:
     print("Invalid loop type specified")  
 

@@ -49,14 +49,13 @@ colors = ["#F7464A", "#46FBD", "#FDB45C", "#FEDCBA"]
 def quiz():
     if request.method == 'GET':
         return render_template("index.html", data=questions)
-    else:
-        result = 0 
-        total = 0 
-        for question in questions:
-            if request.form[question.get('id')] == question.get('correct'):
-                result +=1
-            total += 1
-        return render_template('results.html', total=total, result=result)
+    result = 0
+    total = 0
+    for question in questions:
+        if request.form[question.get('id')] == question.get('correct'):
+            result +=1
+        total += 1
+    return render_template('results.html', total=total, result=result)
 
 if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be

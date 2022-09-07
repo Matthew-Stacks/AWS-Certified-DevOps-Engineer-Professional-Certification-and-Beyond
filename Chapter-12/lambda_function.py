@@ -18,7 +18,5 @@ def lambda_handler(event, context):
   d_txt = (''.join(s.findAll(text=True))for s in bs.findAll('div'))
   count_div = Counter((x.rstrip(punctuation).lower() for y in d_txt for x in y.split()))
 
-  # create a sum total of the words 
-  word_sum = countp + count_div
-  # return the number of words 
-  return word_sum
+  # return the number of words
+  return countp + count_div
