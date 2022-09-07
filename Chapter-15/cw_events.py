@@ -19,26 +19,20 @@ def lambda_handler(event, context):
 ###################################
 
 def custom_metric():
-    create_metric = cw.put_metric_data(
+    return cw.put_metric_data(
         Namespace='custom_metric',
-        MetricData = [
+        MetricData=[
             {
                 'MetricName': 'Signups',
                 'Dimensions': [
-                    {
-                        'Name': 'EMAIL_CAMPAIGN',
-                        'Value': 'cableTV_spot2'
-                    },
-                    {
-
-                    },
+                    {'Name': 'EMAIL_CAMPAIGN', 'Value': 'cableTV_spot2'},
+                    {},
                 ],
                 'Unit': 'None',
-                'Value': random.randint(1,100)
+                'Value': random.randint(1, 100),
             },
         ],
     )
-    return create_metric
 
 ###################################
 # Create EventBridge event
@@ -51,9 +45,9 @@ def eb():
         Entries=[
             {
                 'Action': random.choice(action_list),
-                'Subscriber': random.choice(fname_list) + " " + random.choice(lname_list),
+                'Subscriber': f"{random.choice(fname_list)} {random.choice(lname_list)}",
                 'Source': 'cableTV_spot2',
-                'EventBusName': 'chapter15'
+                'EventBusName': 'chapter15',
             }
         ]
     )
